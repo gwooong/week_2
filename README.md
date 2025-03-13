@@ -1,2 +1,2 @@
-A sample command-line application with an entrypoint in `bin/`, library code
-in `lib/`, and example unit test in `test/`.
+# 내일배움캠프 2주차 과제
+콘솔 쇼핑몰입니다.
