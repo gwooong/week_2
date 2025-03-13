@@ -25,14 +25,11 @@ class ShoppingMall {
   void showTotal() {
     print('장바구니에 $totalPrice원 어치를 담으셨네요 !');
   }
+
 }
 
 void main(List<String> arguments) {
-  while (true) {
-    var shoppingMall = ShoppingMall();
-    int input = 0;
-
-    List<Product> products = [
+      List<Product> products = [
       Product('셔츠', 45000),
       Product('원피스', 30000),
       Product('반팔티', 35000),
@@ -40,6 +37,10 @@ void main(List<String> arguments) {
       Product('양말', 5000)
     ];
 
+    var shoppingMall = ShoppingMall();
+    int input = 0;
+
+  while (true) {
     print("[1] 상품 목록 보기 / [2] 장바구니에 담기 / [3] 장바구니에 담긴 상품의 총 가격 보기 / [4] 프로그램 종료");
     input = int.parse(stdin.readLineSync()!);
 
