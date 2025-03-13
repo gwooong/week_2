@@ -23,7 +23,8 @@ class ShoppingMall {
   }
 
   void showTotal() {
-    print('장바구니에 $totalPrice원 어치를 담으셨네요 !');
+    var productNames = products.map((e) => e.name).join(', ');  
+    print('장바구니에 $productNames 총 $totalPrice원입니다!');
   }
 
 }
@@ -41,7 +42,7 @@ void main(List<String> arguments) {
     int input = 0;
 
   while (true) {
-    print("[1] 상품 목록 보기 / [2] 장바구니에 담기 / [3] 장바구니에 담긴 상품의 총 가격 보기 / [4] 프로그램 종료");
+    print("[1] 상품 목록 보기 / [2] 장바구니에 담기 / [3] 장바구니에 담긴 상품의 총 가격 보기 / [4] 프로그램 종료 /[6] 장바구니 초기화" );
     input = int.parse(stdin.readLineSync()!);
 
     if (input == 1) { // 상품목록보기
@@ -88,8 +89,23 @@ void main(List<String> arguments) {
     }
 
     if(input ==4){ // 프로그램 종료
-      print("이용해 주셔서 감사합니다 ~ 안녕히 가세요!");
-      break;
+      print("정말 종료하시겠습니까?");
+      input = int.parse(stdin.readLineSync()!);
+      if(input == 5){
+        print("이용해 주셔서 감사합니다 ~ 안녕히 가세요!");
+        break;
+      } else{
+        print("종료하지 않습니다.");
+      }
+    }
+    if(input == 6){ // 장바구니 초기화
+      if (shoppingMall.products.isEmpty) {
+      print("이미 장바구니가 비어있습니다.");
+      } else {
+      shoppingMall.products.clear();
+      shoppingMall.totalPrice = 0;
+      print("장바구니가 초기화 되었습니다.");
+      }
     }
   }
 }
